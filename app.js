@@ -1087,7 +1087,7 @@ function openSettings(section) {
 function setTheme(t) {
   settings.theme = t; saveSettings();
   document.documentElement.dataset.theme = t;
-  document.querySelector('meta[name="theme-color"]').content = t === 'glass' ? '#0d1022' : '#1b2723';
+  document.querySelector('meta[name="theme-color"]').content = t === 'glass' ? '#cbbfc2' : '#2c4034';
 }
 async function exportBackup() {
   const images = [];

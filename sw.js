@@ -1,6 +1,6 @@
 /* 오박사의 메모장 — 오프라인 실행용 서비스 워커
    앱 파일과 글꼴은 저장해두고(인터넷 없으면 저장본 사용), GitHub 통신은 건드리지 않음. */
-const CACHE = 'obm-v2.0.1';
+const CACHE = 'obm-v2.1.0';
 const SHELL = ['./', './index.html', './style.css', './app.js', './manifest.webmanifest',
   './icons/icon-192.png', './icons/icon-512.png', './icons/apple-touch-icon.png'];
 
@@ -18,7 +18,7 @@ self.addEventListener('fetch', e => {
   const url = new URL(req.url);
   if (url.hostname === 'api.github.com') return;            // 동기화는 항상 실제 서버로
   const sameOrigin = url.origin === self.location.origin;
-  const isFont = url.hostname === 'fonts.googleapis.com' || url.hostname === 'fonts.gstatic.com';
+  const isFont = url.hostname === 'fonts.googleapis.com' || url.hostname === 'fonts.gstatic.com' || (url.hostname === 'cdn.jsdelivr.net' && url.pathname.includes('pretendard'));
   if (!sameOrigin && !isFont) return;
 
   if (sameOrigin) {
