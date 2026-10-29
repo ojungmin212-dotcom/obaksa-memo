@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="ko" data-theme="chalk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>오박사의 메모장</title>
+<meta name="description" content="어디서든 열리는 칠판 메모장. 할일, 아이디어, 일정, 비밀 메모.">
+<meta name="theme-color" content="#1b2723">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" type="image/png" href="icons/icon-192.png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="오박사 메모">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gaegu:wght@400;700&family=Gowun+Dodum&display=swap">
+<link rel="stylesheet" href="style.css">
+<script>
+try{var s=JSON.parse(localStorage.getItem('obm.settings')||'{}');document.documentElement.dataset.theme=s.theme||'chalk'}catch(e){}
+</script>
+</head>
+<body>
+<div class="app">
+  <header class="top">
+    <h1 class="brand"><span class="brand-hi">오박사</span>의 메모장</h1>
+    <button id="syncBtn" class="sync" type="button" data-s="local" title="지금 동기화 (Ctrl+S)"><span class="dot"></span><span id="syncTxt">이 기기에 저장</span></button>
+    <div class="top-actions">
+      <button id="themeBtn" class="ibtn" type="button" title="테마 바꾸기 (칠판 / 글라스)" aria-label="테마 바꾸기"></button>
+      <button id="helpBtn" class="ibtn" type="button" title="단축키 (F1)" aria-label="단축키"></button>
+      <button id="setBtn" class="ibtn" type="button" title="설정" aria-label="설정"></button>
+    </div>
+  </header>
+
+  <div class="layout">
+    <main class="main">
+      <section class="quick panel" id="quick">
+        <div class="kinds" id="qKinds" role="radiogroup" aria-label="메모 종류"></div>
+        <div class="qrow">
+          <textarea id="qText" rows="1" placeholder="무엇이든 적고 Enter" aria-label="새 메모"></textarea>
+          <button id="qImg" class="ibtn" type="button" title="사진 첨부 (Ctrl+V 로 붙여넣기도 됩니다)" aria-label="사진 첨부"></button>
+          <button id="qLock" class="ibtn" type="button" title="비밀 메모로 적기" aria-label="비밀 메모로 적기" aria-pressed="false"></button>
+          <button id="qAdd" class="btn primary" type="button">적기</button>
+        </div>
+        <div class="qextra" id="qExtra" hidden>
+          <label class="field-l">날짜 <input type="date" id="qDate" class="field"></label>
+          <label class="field-l">시간 <input type="time" id="qTime" class="field"></label>
+          <span class="hint">시간을 비우면 하루 종일 일정</span>
+        </div>
+        <div class="thumbs" id="qThumbs"></div>
+      </section>
+
+      <section class="up-mobile panel" id="upMobileWrap" hidden>
+        <h2>다가오는 일정</h2>
+        <div class="up" id="upMobile"></div>
+      </section>
+
+      <div class="toolbar">
+        <nav class="filters" id="filters" aria-label="보기"></nav>
+        <label class="searchbox"><span class="sicon" aria-hidden="true"></span><input id="search" type="search" placeholder="찾기 (Ctrl+F)" autocomplete="off"></label>
+      </div>
+      <div class="tagbar" id="tagbar"></div>
+      <section id="list" class="list" aria-live="polite"></section>
+    </main>
+
+    <aside class="side">
+      <section class="panel side-card">
+        <h2>다가오는 일정</h2>
+        <div class="up" id="upcoming"></div>
+      </section>
+      <section class="panel side-card stats" id="stats"></section>
+    </aside>
+  </div>
+</div>
+
+<input type="file" id="fileIn" accept="image/*" multiple hidden>
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+<div id="modal" class="modal" hidden>
+  <div class="sheet panel" role="dialog" aria-modal="true" id="sheet"></div>
+</div>
+<div id="dropzone" class="dropzone" hidden>여기에 사진을 놓으세요</div>
+<script src="app.js"></script>
+</body>
+</html>

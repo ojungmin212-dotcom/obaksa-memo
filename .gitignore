@@ -1,0 +1,5 @@
+.claude/
+old/
+*.json.bak
+오박사메모-백업-*.json
+기획초안.md
