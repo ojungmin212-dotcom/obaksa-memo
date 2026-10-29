@@ -3,7 +3,7 @@
 어디서든 주소 하나로 열리는 칠판 메모장. 인터넷 없이도 쓰고, GitHub 비공개 저장소로 기기끼리 맞춥니다.
 
 ## 1. 열기와 홈 화면 아이콘
-- 주소: (GitHub Pages에 올린 뒤 여기에 적습니다)
+- 주소: **https://ojungmin212-dotcom.github.io/obaksa-memo/**
 - **PC 크롬·엣지**: 주소창 오른쪽 설치 아이콘 → 설치. 바탕화면·작업표시줄에 아이콘이 생깁니다.
 - **안드로이드 크롬**: 메뉴(⋮) → 앱 설치 또는 홈 화면에 추가.
 - **아이폰 사파리**: 공유 버튼 → 홈 화면에 추가.
@@ -12,7 +12,7 @@
 ## 2. 기기끼리 맞추기 (GitHub 동기화)
 처음 한 번만 준비하고, 각 기기에서 설정에 같은 값을 넣으면 됩니다.
 
-1. GitHub에서 **비공개(Private)** 저장소를 만듭니다. 이름 예: `obaksa-memo-data`.
+1. 비공개 저장소 `obaksa-memo-data` 는 이미 만들어 두었습니다: https://github.com/ojungmin212-dotcom/obaksa-memo-data
 2. GitHub 오른쪽 위 프로필 → Settings → Developer settings → Personal access tokens → **Fine-grained tokens** → Generate new token.
    - Repository access: **Only select repositories** → 방금 만든 저장소 하나만.
    - Permissions → Repository permissions → **Contents: Read and write**.
@@ -66,7 +66,7 @@
 | `app.js` | 메모, 사진, 암호화, 일정, 단축키, GitHub 동기화 |
 | `sw.js` | 오프라인 실행 (서비스 워커) |
 | `manifest.webmanifest`, `icons/` | 홈 화면 아이콘 |
-| `기획초안.md` | 기획 질문, 답변, 설계 결정 |
+| `기획초안.md` | 기획 질문, 답변, 설계 결정 (내 PC에만 보관, 저장소에는 올리지 않음) |
 | `old/artifact-v1.html` | 1차 버전 (Claude 아티팩트용) |
 
 ## 7. 고친 뒤 다시 올리기
